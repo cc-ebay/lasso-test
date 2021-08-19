@@ -3,6 +3,7 @@ import { configure } from "lasso";
 import { serveStatic } from "lasso/middleware";
 import markoMiddleware from "@marko/express";
 import homePage from "./pages/home";
+import homePage2 from "./pages/home2";
 
 // Configure lasso to control how JS/CSS/etc. is delivered to the browser
 const isProduction = process.env.NODE_ENV === "production";
@@ -32,6 +33,7 @@ express()
   .use(markoMiddleware()) // Enables res.marko
   .use(serveStatic()) // Serve static assets with lasso
   .get("/", homePage) // Setup the route for our home page handler
+  .get("/2", homePage2) // Setup the route for our home page handler
   .listen(process.env.PORT || 8080, function () {
     console.log(
       "Server started! Try it out:\nhttp://localhost:" +
