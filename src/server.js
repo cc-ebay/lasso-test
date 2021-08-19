@@ -10,6 +10,19 @@ configure({
   plugins: [
     "lasso-marko" // Allow Marko templates to be compiled and transported to the browser
   ],
+  "require": {
+      "transforms": [{
+          "transform": "lasso-babel-transform",
+          "config": {
+              "extensions": [
+                  ".js",
+                  ".es6",
+                  ".marko"
+              ],
+              "babelOptions": require('../babel.config.js')()
+          }
+      }]
+  },
   minify: isProduction, // Only minify JS and CSS code in production
   bundlingEnabled: isProduction, // Only enable bundling in production
   fingerprintsEnabled: isProduction // Only add fingerprints to URLs in production

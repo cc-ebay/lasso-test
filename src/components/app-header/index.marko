@@ -1,3 +1,13 @@
+class {
+    onCreate(input) {
+        const { title, ...other } = input;
+
+        this.state = {
+            title: title + '!!!'
+        };
+    }
+}
+
 style {
   header {
     font-size: 2.5em;
@@ -17,5 +27,5 @@ style {
 
 <header>
   <img src="./logo.png" alt="marko logo" class="logo"/>
-  <div>${input.title}</div>
+  <div>${state.title}</div>
 </header>
